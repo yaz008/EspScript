@@ -15,4 +15,6 @@ def make_token(match: tuple[str]) -> Token:
 def tokenize(src: str) -> list[Token]:
     pattern: str = r'([a-zA-Z_][a-zA-Z0-9_]*)|(\d+(?:\.\d+)?)|(\'.*\')|([|])'
     matches: list[tuple[str]] = findall(pattern=pattern, string=src)
-    return [make_token(match=match) for match in matches]
+    tokens: list[Token] = [make_token(match=match) for match in matches]
+    tokens.append(Token(type=TokenType.EOF, value=None))
+    return tokens

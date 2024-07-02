@@ -6,6 +6,7 @@ class TokenType(IntEnum):
     NUMERIC_LITERAL: int = 1
     STRING_LITERAL: int = 2
     OPERATOR: int = 3
+    EOF: int = 4
 
 @dataclass(slots=True)
 class Token:
